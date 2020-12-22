@@ -9,5 +9,4 @@ public class DockerJenkingsIntegrationsSampleApplication {
     public static void main(String[] args) {
         SpringApplication.run(DockerJenkingsIntegrationsSampleApplication.class, args);
     }
-
 }
