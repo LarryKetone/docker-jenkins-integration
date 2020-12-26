@@ -31,19 +31,6 @@
         </dependency>
     </dependencies>
 
-    <repositories>
-        <repository>
-            <id>com.rancard</id>
-            <url>https://github.com/LarryKetone/docker-jenkins-integration</url>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-        <repository>
-            <id>com.rancard</id>
-            <url>https://github.com/LarryKetone/docker-jenkins-integration</url>
-        </repository>
-    </distributionManagement>
 
     <build>
         <plugins>
