@@ -13,7 +13,7 @@ public class MainService {
     }
 
     public boolean getTestMethod() {
-        System.out.println("Good morning my neighbours!");
+        System.out.println("Good morning my friends!");
         return true;
     }
 
