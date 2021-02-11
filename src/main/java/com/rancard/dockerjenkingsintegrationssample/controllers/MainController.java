@@ -1,5 +1,7 @@
 package com.rancard.dockerjenkingsintegrationssample.controllers;
 
+import com.rancard.dockerjenkingsintegrationssample.services.MainService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +12,17 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class MainController {
 
+    private final
+    MainService mainService;
+
+    public MainController(MainService mainService) {
+        this.mainService = mainService;
+    }
+
     @GetMapping
     public ResponseEntity test (HttpServletRequest request){
 
-        System.out.println("Good morning my neighbours!");
+        mainService.getTestMethod();
         return new ResponseEntity(HttpStatus.OK);
     }
 }
