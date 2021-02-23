@@ -23,6 +23,6 @@ public class MainController {
     public ResponseEntity test (HttpServletRequest request){
 
         mainService.getTestMethod();
-        return new ResponseEntity("<h1>Hello Jenkins and Docker Boss!</h1>",HttpStatus.OK);
+        return new ResponseEntity("<h1>Hello Jenkins and Docker. It works!</h1>",HttpStatus.OK);
     }
 }
