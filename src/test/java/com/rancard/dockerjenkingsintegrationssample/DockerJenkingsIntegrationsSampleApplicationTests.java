@@ -22,6 +22,7 @@ import org.springframework.web.context.WebApplicationContext;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -57,6 +58,15 @@ class DockerJenkingsIntegrationsSampleApplicationTests {
         System.out.println(jsonRequest);
         MvcResult mvcResult = mockMvc.perform(post("/main").content(jsonRequest)
         .contentType(MediaType.APPLICATION_JSON_VALUE)).andExpect(status().isOk()).andReturn();
+        String resultContent = mvcResult.getResponse().getContentAsString();
+        Response response =  objectMapper.readValue(resultContent,Response.class);
+        assertTrue(response.isStatus() == Boolean.TRUE);
+    }
+
+    @Test
+    void getAllEmployeesTest() throws Exception {
+         MvcResult mvcResult = mockMvc.perform(get("/")
+                .contentType(MediaType.APPLICATION_JSON_VALUE)).andExpect(status().isOk()).andReturn();
         String resultContent = mvcResult.getResponse().getContentAsString();
         Response response =  objectMapper.readValue(resultContent,Response.class);
         assertTrue(response.isStatus() == Boolean.TRUE);

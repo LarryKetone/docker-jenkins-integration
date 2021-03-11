@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 public class MainController {
@@ -25,9 +26,10 @@ public class MainController {
     }
 
     @GetMapping
-    public ResponseEntity test (HttpServletRequest request){
+    public Response getMain (HttpServletRequest request){
 
-        return new ResponseEntity("<h1>Hello Jenkins and Docker. It works!</h1>",HttpStatus.OK);
+        List<Employee> employees =  employeeRepository.findAll();
+        return new Response ("records size : " + employees.size(),Boolean.TRUE);
     }
 
 
@@ -36,6 +38,12 @@ public class MainController {
 
         employeeRepository.save(employee);
         return new Response(employee.getId() + " inserted!",Boolean.TRUE);
+    }
+
+    @GetMapping("/test")
+    public Response test (HttpServletRequest request){
+
+        return new Response ("Hello team! This is a test!",Boolean.TRUE);
     }
 
 }
