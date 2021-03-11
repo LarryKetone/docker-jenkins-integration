@@ -12,12 +12,11 @@ public class MainService {
         this.supportService = supportService;
     }
 
-    public boolean getTestMethod() {
-        System.out.println("Good morning my friends!");
-        return true;
+    public int getTestMethod(int i,int j) {
+
+        int ans = supportService.getTestNumeric();
+        return ans + j;
     }
 
-    public double getTestNumeric() {
-        return supportService.support();
-    }
+
 }
