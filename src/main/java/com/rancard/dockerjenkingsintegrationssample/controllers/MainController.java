@@ -29,7 +29,7 @@ public class MainController {
     public Response getMain (HttpServletRequest request){
 
         List<Employee> employees =  employeeRepository.findAll();
-        return new Response ("records size : " + employees.size(),Boolean.FALSE);
+        return new Response ("records size : " + employees.size(),Boolean.TRUE);
     }
 
 
