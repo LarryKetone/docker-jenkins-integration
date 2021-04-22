@@ -61,6 +61,7 @@
     </dependencies>
 
     <build>
+        <finalName>docker-jenkings-integrations-sample-1.0-SNAPSHOT.jar</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
