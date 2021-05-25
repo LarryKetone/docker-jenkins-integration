@@ -3,7 +3,7 @@ pipeline {
     agent any
     tools {
         //supported tools are gradle , maven ,jdk
-        maven 'Maven'
+        maven 'maven'
     }
     parameters {
         //these can be used as defined variables in stages
