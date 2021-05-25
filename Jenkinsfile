@@ -54,8 +54,10 @@ pipeline {
     }
     post {
     //runs after all the stages have completed
-        always {
-            //runs always, similar ones , success, failure
-        }
+    //runs always, similar ones , success, failure
+
+        /* always {
+
+        } */
     }
 }
