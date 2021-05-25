@@ -52,12 +52,12 @@ pipeline {
             }
         }
     }
+        //runs after all the stages have completed
     post {
-    //runs after all the stages have completed
     //runs always, similar ones , success, failure
 
-        /* always {
-
-        } */
+         always {
+                echo 'this is a post...'
+        }
     }
 }
