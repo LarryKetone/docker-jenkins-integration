@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-jenkins-deployment
+  labels:
+    app: docker-jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-jenkins
+  template:
+    metadata: 
+      labels:
+        app: docker-jenkins
+    spec:
+      containers:
+      - name: mondocker-jenkinsgodb
+        image:  lawrence2021/demo-spring:4.0
+        ports:
+        - containerPort: 9093
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: mongo-root-username
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-secret
+              key: mongo-root-password
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: docker-jenkins-service
+spec:
+  selector:
+    app: docker-jenkins
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 9093
+      targetPort: 9093
+      nodePort: 30001
